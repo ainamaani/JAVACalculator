@@ -12,19 +12,19 @@ public class Calculator {
             double num2 = getValidNumber(scanner);
 
             System.out.print("Enter the operation (subtraction/division): ");
-            String operation = scanner.nextLine().toLowerCase();
+            String operation = scanner.nextLine().toLowerCase(); //convert to lowercase incase user enters upper case letters
 
             double result;
             switch (operation) {
                 case "subtraction":
-                    result = subtract(num1, num2);
+                    result = subtract(num1, num2); //call the subtract function
                     System.out.println("Result: " + result);
                     break;
                 case "division":
                     if (num2 == 0) {
                         System.out.println("Error: Division by zero is not allowed.");
                     } else {
-                        result = divide(num1, num2);
+                        result = divide(num1, num2); //call the divide function
                         System.out.println("Result: " + result);
                     }
                     break;
@@ -44,8 +44,8 @@ public class Calculator {
 
     private static double getValidNumber(Scanner scanner) {
         while (true) {     //even integers are valid because they can be represented as doubles without loss of precision.
-            if (scanner.hasNextDouble()) {
-                double number = scanner.nextDouble();
+            if (scanner.hasNextDouble()) { //hasNextDouble checks for a valid double
+                double number = scanner.nextDouble(); //nextDouble consumes the double
                 scanner.nextLine(); // Consume the newline character
                 return number;
             } else {
